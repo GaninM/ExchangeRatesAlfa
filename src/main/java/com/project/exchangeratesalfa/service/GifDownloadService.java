@@ -8,4 +8,5 @@ public interface GifDownloadService {
 
     ResponseEntity<byte[]> getGifByUrl(URI url);
 
+    String getGifUrlByTag(String tag);
 }
