@@ -8,7 +8,6 @@ import java.net.URI;
 
 @FeignClient(name = "gofDownloadClient", url = "https://placeholder")
 public interface GifDownloadClient {
-
     @GetMapping
     ResponseEntity<byte[]> getGifByUrl(URI baseUrl);
 }

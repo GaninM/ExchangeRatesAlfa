@@ -16,7 +16,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     private final String apiKey;
 
-    public CurrencyServiceImpl(CurrencyClient currencyClient,@Value("${currency.app.id}") String apiKey) {
+    public CurrencyServiceImpl(CurrencyClient currencyClient, @Value("${currency.app.id}") String apiKey) {
         this.currencyClient = currencyClient;
         this.apiKey = apiKey;
     }

@@ -19,5 +19,4 @@ public class ExchangeRateController {
     public ResponseEntity<byte[]> getGifByRate(@RequestParam("base") String base) {
         return gifDependingOnCurrency.getGifUrlByCurrency(base);
     }
-
 }
