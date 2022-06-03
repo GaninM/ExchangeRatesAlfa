@@ -38,14 +38,5 @@ class ExchangeRateControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.IMAGE_GIF));
     }
-
-    @Test()
-    @DisplayName("проверка на некоректнО введную валюту(Колличество символов != 3)")
-    void getGifBadGateWay() {
-        assertThrows(RuntimeException.class,
-                () -> mockMvc.perform(get("/currency/gif")
-                                .param("base", "BADBASE"))
-                        .andExpect(status().isBadRequest()));
-    }
 }
 
