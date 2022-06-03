@@ -25,5 +25,4 @@ public class GifServiceImpl implements GifService {
     public ResponseEntity<Gif> getGif(String tag) {
         return gifClient.getRandomGif(apiKey, tag);
     }
-
 }

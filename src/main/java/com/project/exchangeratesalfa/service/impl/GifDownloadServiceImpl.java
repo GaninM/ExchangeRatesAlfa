@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.URI;
 import java.util.Map;
+import java.util.Objects;
 
 @Data
 @Service
@@ -32,40 +33,9 @@ public class GifDownloadServiceImpl implements GifDownloadService {
 
     @Override
     public String getGifUrlByTag(String tag) {
-        //Помещаем боди в дату в Gif
         Gif gif = gifService.getGif(tag).getBody();
-        System.out.println(gif.toString());
-
-        //TODO переделать мапы в один стрим , который выведет url и присвоет String
-
-        // gif.getData().entrySet().stream()
-        //       .filter(e -> e.getKey().equals("images"))
-//                .map(e -> {
-//                    String key = e.getKey();
-//                    Object value = e.getValue();
-//                    Map<String, Object> map = new HashMap<>();
-//                    map.put(key, value);
-//                    return map;
-//                })
-//
-        //.filter(e -> e.getKey().equals("hd"))
-        //.forEach(e -> System.out.println(e));
-//
-//
-//
-        Map<String, Object> secondData = (Map<String, Object>) gif.getData().get("images");
-        System.out.println(secondData.toString());
-        Map<String, Object> thirtyData = (Map<String, Object>) secondData.get("downsized_large");
-        System.out.println(thirtyData.toString());
-        //достаем url
-        String url = (String) thirtyData.get("url");
-        System.out.println(url);
-//        //Создаем URI для получения гиф по url
-//        URI basePathUri = URI.create(url);
-//        //загружаем гиф на страницу
-
-        //return gifDownloadService.getGifByUrl(basePathUri);
-        return url;
+        Map data = (Map) Objects.requireNonNull(gif).getData().get("images");
+        data = (Map) data.get("original");
+        return (String) data.get("url");
     }
-
 }

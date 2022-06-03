@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import java.net.URI;
 
 public interface GifDownloadService {
-
     ResponseEntity<byte[]> getGifByUrl(URI url);
 
     String getGifUrlByTag(String tag);

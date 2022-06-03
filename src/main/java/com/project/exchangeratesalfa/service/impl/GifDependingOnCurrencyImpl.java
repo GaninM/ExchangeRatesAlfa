@@ -38,7 +38,7 @@ public class GifDependingOnCurrencyImpl implements GifDependingOnCurrency {
             throw new RuntimeException("Код должен состоять из 3-х символов");
         }
         String dateToday = dateFormatSetting(0);
-        String dateYesterday = dateFormatSetting(2);
+        String dateYesterday = dateFormatSetting(1);
         double rateToday = getCurrencyByBaseAndDate(dateToday, base);
         double rateYesterday = getCurrencyByBaseAndDate(dateYesterday, base);
         String tag = (rateToday > rateYesterday) ? "rich" : "broke";
